@@ -1,0 +1,39 @@
+/* ------------- NAVBAR -------------  */
+.navbar {
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+/* ------------- HERO SECTION -------------  */
+
+.heroSection_banner {
+  background-image: url("https://cdn.shopify.com/s/files/1/0852/5099/8550/files/slide03.jpg?v=1719430931");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  box-shadow: 0 0 45px 3px #ebcfa7;
+}
+
+
+
+.arrow1 {
+  animation: slide1 1s ease-in-out infinite;
+  margin-left: 9px;
+}
+
+
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
