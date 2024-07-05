@@ -56,7 +56,7 @@ const Intro = () => {
                     </p>
                   </BoxReveal>
 
-                  <Link href="/quetta" className="mt-2 hover_button card">
+                  <Link href="/gujranwala" className="mt-2 hover_button card">
                     See details
                   </Link>
                 </div>

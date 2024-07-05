@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ModalVideo from "@/components/ModalVideo";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Ammar Forte",
@@ -27,9 +26,9 @@ export default function RootLayout({
         />
       </head>
       <body className="light">
-        <ModalVideo />
         <div className="w-full flex justify-center items-center">
           <Navbar />
+      <ModalVideo/>
         </div>
         {children}
         <div className="w-full">
