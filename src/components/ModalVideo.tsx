@@ -42,6 +42,7 @@ const ModalVideo = () => {
               loop
               autoPlay
               playsInline
+              preload="auto"
               className="w-[100%]"
             >
               <source src="/brandsvillage.mp4" type="video/mp4" />
