@@ -3,14 +3,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-} from "keep-react";
-import { RiArrowRightDoubleFill } from "react-icons/ri";
+
 import "./Components.css";
+import { RiArrowRightDoubleFill } from "react-icons/ri";
 import Link from "next/link";
 
 const ModalVideo = () => {
@@ -24,31 +19,36 @@ const ModalVideo = () => {
 
   const closeModal = () => {
     setIsOpen(false);
+    document.body.style.overflow = "auto";
   };
   return (
     <>
-      <Modal className="bg-transparent" isOpen={isOpen} onClose={closeModal}>
-        <ModalBody className="flex w-[40rem] flex-col bg-transparent dark:bg-transparent">
-          <div
-            onClick={closeModal}
-            className=" text-white w-full flex justify-end text-end hover hover:cursor-pointer"
-          >
-            <RxCross1 className="text-[#EBCFA7]" />
-          </div>
-          <ModalContent className="my-2 text-center">
-            <video
-              controls
-              muted
-              loop
-              autoPlay
-              playsInline
-              className="w-[100%]"
-            >
-              <source src="/brandsvillage.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </ModalContent>
-          <ModalFooter>
+      {isOpen && (
+        <div
+          aria-hidden="true"
+          className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-screen bg-gray-800 bg-opacity-50"
+        >
+          <div className="relativ w-full max-w-lg max-h-ful rounded-md shadow dark:bg-gray-700 mx-auto">
+            {/* ------------- HEADER ------------- */}
+            <div className="flex text-[#EBCFA7] items-center justify-end pr-2 cursor-pointer ">
+              <RxCross1 onClick={closeModal} />
+            </div>
+
+            {/* ------------- BODY ------------- */}
+            <div className="p-2 md:p-2">
+              <video
+                controls
+                muted
+                loop
+                autoPlay
+                playsInline
+                className="w-[100%]"
+              >
+                <source src="/BrandsVillage Gujrawala Voice Over Video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
             <div className="w-[100%] flex justify-center items-center">
               <Link
                 href="/sialkot"
@@ -63,10 +63,12 @@ const ModalVideo = () => {
                 />
               </Link>
             </div>
-          </ModalFooter>
-        </ModalBody>
-      </Modal>
+          </div>
+        </div>
+      )}
     </>
+
+   
   );
 };
 
