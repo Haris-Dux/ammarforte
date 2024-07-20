@@ -9,15 +9,6 @@ import { MdPhone } from "react-icons/md";
 import { useFormState } from "react-dom";
 import { submitForm } from "../actions/QueryActions";
 import SubmitButton from "./SubmitButton";
-import { Check } from "phosphor-react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalIcon,
-} from "keep-react";
 
 const Page = () => {
   const ref = useRef<HTMLFormElement>(null);
@@ -38,6 +29,7 @@ const Page = () => {
 
   const closeModal = () => {
     setIsOpen(false);
+    document.body.style.overflow = "auto";
   };
 
   return (
@@ -189,27 +181,30 @@ const Page = () => {
       </section>
 
       <>
-        <Modal isOpen={isOpen} onClose={closeModal}>
-          <ModalBody className="flex w-[30rem] flex-col items-center p-6 lg:p-8">
-            <ModalIcon className="h-20 w-20 border border-success-100 bg-success-50 text-success-500">
-              <Check size={60} />
-            </ModalIcon>
-            <ModalContent className="my-4 text-center">
-              <h3 className="mb-2 text-body-1 font-bold text-metal-900">
+        {isOpen && (
+          <div
+            aria-hidden="true"
+            className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-screen bg-gray-800 bg-opacity-50 "
+          >
+            <div className="relative w-full max-w-lg max-h-ful rounded-md bg-white shadow dark:bg-gray-700 mx-2">
+              {/* ------------- BODY ------------- */}
+              <div className="p-2 md:p-2"></div>
+              <h3 className="mb-2 text-body-1 w-full text-center text-green-600 font-bold">
                 Submission Successful
               </h3>
-              <p className="mx-auto max-w-xs text-body-4 font-normal text-metal-600">
+              <p className="mx-auto max-w-xs text-center font-normal text-metal-600">
                 Your message has been submitted.Our team will get back to you
                 soon.
               </p>
-            </ModalContent>
-            <ModalFooter>
-              <Button onClick={closeModal} size="sm" color="success">
-                Close
-              </Button>
-            </ModalFooter>
-          </ModalBody>
-        </Modal>
+              <div className="w-[100%] py-2 flex justify-center items-center">
+                <button onClick={closeModal} className="bg-red-600 p-2 text-white rounded-lg">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
       </>
     </>
   );
